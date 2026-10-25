@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Place Holder.lua</title>
+  <style>
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #000;
+      color: #fff;
+    }
+    body {
+      padding: 28px 22px 60px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    pre {
+      margin: 0;
+      color: #fff;
+      background: #000;
+      font: inherit;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+    ::selection {
+      background: #fff;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <main><pre>Place Holder.lua
+
+Documentation mirror / notes / revision 0.8.14
+
+This document has notes for the Place Holder.lua project. It is not a manual. Should not be seen as a complete description of the application. Sections have been copied from working documents, test records, maintenance notes and files that may no longer exist. Repeated information is intentional where it appears to be intentional. Missing information has not been reconstructed unless reconstruction was necessary to preserve the order of the document.
+
+The project name is written as Place Holder.lua in the index. Older references may use PLACEHOLDER, place_holder, placeholder, PlaceHolder or the temporary label PH. These names are considered equivalent for indexing purposes except where the distinction&#x27;s specifically relevant. The extension is part of the name. Should not be removed when copying the title into another record.
+
+A placeholder is an object used temporarily in place of another object. A placeholder may be visible, invisible, functional, nonfunctional or intentionally indistinguishable from the object it replaces. The use of a placeholder does not guarantee that a replacement is expected. Some placeholders remain in place because the original object was never delivered. Others remain because removing them would change the layout of the project.
+
+01\. General notes
+
+The initial project folder contained empty folders, one test room, a copy of the default character and a script with no useful comments. The test room was removed during cleanup. The character was retained because several later tests relied on its dimensions. The script was renamed after the public build and was not rewritten at that time.
+
+Do not rename objects simply because their names look temporary. Names such as Part, Model, Folder, Script, NewScript, Test and Placeholder are common in development. Their names are not indicators of importance. A model named OldDoor may be used by a system while a model named MainDoor may be unused. Verify references before making changes.
+
+The phrase &quot;not used&quot; means that no use was observed during the test in which the phrase was recorded. It does not mean that an object has never been used. It does not mean that an object cannot be used. It does not mean that the object is safe to delete.
+
+A blank room is still a room if the room can be entered. A room that cannot be entered may still be part of the layout. A room that does not appear in the layout may still be referenced by the layout. These definitions were added after a disagreement about whether the room behind the maintenance wall should be counted in the map total.
+
+The current map count is listed as 14 in the exported table 15 in the planning sheet and 14 in the notes from the review. The difference was marked as a spreadsheet issue. No spreadsheet issue was located. The planning sheet was not updated because it was used to generate a list of asset names.
+
+02\. Naming and file structure
+
+The recommended folder order is Assets, Audio, Maps, Scripts, Shared, UI and Working. This order is a recommendation. Existing project copies may contain folders named Temp, Temp2, TempNew, Backup, Backup2 and Final. A folder named Final is not necessarily newer than a folder named Backup2. The recent modified date is not necessarily the date on which the contents were last reviewed.
+
+Lua files should use the.lua suffix when stored outside the Roblox project. Files exported for reference may contain code that&#x27;s no longer compatible with the current version. Do not assume that a script was executed merely because it appears in an export. Do not assume that a script was not executed because no execution record was saved.
+
+A file with no contents can be intentional. A file with a newline can also be intentional. If a file is listed in the manifest but absent from the folder check the archive before creating a replacement. If the archive contains no replacement leave the entry unchanged and record the discrepancy.
+
+The file called placeholder.lua is not the file as Place Holder.lua. One uses a lowercase name and one uses spaces and capital letters. This distinction was considered unimportant during the review. The review notes do not explain why the distinction was later added.
+
+There are 32 entries in the manifest. There are 31 files in the folder. One entry is expected to refer to a folder than a file. The folder is not present in the export. The manifest has not been regenerated since the export was created.
+
+03\. Character tests
+
+Character tests were performed with default movement values unless otherwise stated. Walk speed was set to 16 jump power was set to 50. The camera used the standard third-person configuration. These values were not chosen for realism. They were chosen because they were available without setup.
+
+The first test was considered successful when the character spawned at the expected point. The second test was considered successful when the character spawned at the point twice. The third test was marked incomplete because the second spawn appeared to occur before the first character had been removed.
+
+The test record says the character was alone. The server log lists two player objects. One object had no display name. This was initially attributed to a replication delay. The same result was recorded in a test with replication disabled so the note was moved to the miscellaneous section.
+
+A player who appears to be standing still may be waiting for the game to load. A player who appears to be waiting for the game to load may have already loaded. The display state is not a substitute for the server state.
+
+The character did not have a face in the capture. The asset list shows that a face was assigned. The capture was checked again after the test. The original image was no longer available. No further action was requested.
+
+04\. Audio notes
+
+Audio assets should be checked at volume before being placed into a public build. Short sounds may be difficult to identify when played repeatedly. Long sounds may appear to stop when the listener is moved outside the expected range. The absence of output is not proof that a sound object is disabled.
+
+The ambience test used a loop with a duration of 18 seconds. The file in the export has a duration of 18 seconds. The recording attached to the test note lasts 21 seconds. The extra three seconds were attributed to silence at the beginning of the recording although the waveform begins before the visible marker.
+
+Do not combine ambience files based on their names. Ambience_Day and Ambience_Day2 are assets. Ambience_Final is also an asset. The file called Silence is not silent when inspected in the audio editor but it may have been silent in the version used for the original test.
+
+The sound described as &quot; room noise&quot; was recorded with no microphone connected. The note was copied into the audio report because it was already present in the report template. The original author field is blank.
+
+05\. Maintenance and routine checks
+
+Before publishing a build verify that the start location exists, that the user interface can be closed and that the server can be shut down without leaving a session. Test with one player. Then with more than one player. A test with one player cannot confirm that a multiplayer issue is absent.
+
+If a warning appears once record it. If the warning appears repeatedly record the frequency. If the warning disappears do not delete the record. A missing warning may indicate that the issue was resolved that the relevant code was not reached or that the warning was not captured.
+
+The maintenance checklist contains a line reading &quot;confirm all occupants have been accounted for.&quot; This line was copied from a template and should have been removed. It was removed from the checklist on revision 0.8.11. The same line appears in an exported copy of the checklist.
+
+No maintenance work is scheduled for the section. The lower section is not included in the map. The lower section is included in the backup map. The backup map is not considered authoritative. Do not use the map to determine whether the lower section exists.
+
+The phrase &quot;all clear&quot; is used as a status label. It means that the current checklist has no items. It does not mean that every possible condition has been checked. The phrase should not be used as a confirmation of player count, character count or room count.
+
+06\. Old issue tracker
+
+Issue 004: A door opened without receiving an interaction request. Status: unable to reproduce. The door was replaced during an update. The replacement was not tested with the sequence of actions.
+
+Issue 007: A light remained on after the room was unloaded. Status: fixed. The fix was applied to the lighting controller. The report does not specify whether the room was loaded again after the fix.
+
+Issue 009: An empty object appeared in the player list. Status: duplicate. The duplicate issue links to Issue 007 which concerns a light. The link was retained because removing it caused the tracker to reorder entries.
+
+Issue 012: The room count changed between two exports. Status: data mismatch. The export tool was restarted. The room count returned to its value. No cause was identified.
+
+Issue 013: A test subject reported seeing another character at the end of the hall. Status: no matching character found. The report was closed after the test subject left the session. No screenshot was attached.
+
+Issue 014: The test subjects departure was recorded before the report was submitted. Status: timestamp mismatch. The issue was closed without a correction because the report was considered nonessential.
+
+07\. Frequently asked questions
+
+Q: Is Place Holder.lua finished?
+
+A: The current build is considered complete for its purpose. The stated purpose may differ between project copies.
+
+Q: Is there anything, beyond the map?
+
+A: The public map contains the content required for the current build. This answer does not describe the contents of archived maps.
+
+Q: Why are some names missing?
+
+A: Names may be hidden, unavailable unassigned or absent from the source data. These conditions are not the thing.
+
+Q: Can an object be removed if it is not visible?
+
+A: Being not visible does not mean it should be removed. Look at references, dependencies and notes from the past
+
+Q: Who created the version?
+
+A: The author field in the surviving record is empty. The account field has a value that is no longer accepted by the index. No new value was added.
+
+Q: Why does the document repeat itself?
+
+A: Some parts were merged from documents. The repetition stayed because the original order was not known.
+
+08\. Archived observations
+
+Observation A: The corridor was measured at 42 units in the layout and 42 units in the second layout. In the layout it was measured at 41 units. The difference was within the expected range. The corridor was not changed between these measurements.
+
+Observation B: The exit marker points toward the entrance in the archived copy. The marker points away from the entrance in the copy. Both copies use the marker name. The markers direction was not noted in the change log.
+
+Observation C: A room label was in the screenshot. Not in the hierarchy. The screenshot was taken during a test session. The hierarchy was exported after the session. The time between the two events was than one minute.
+
+Observation D: The server log shows a join event for a player whose request is not in the request log. The request log covers the time period. The time starts after the join event.
+
+Observation E: A note says &quot;do not use the entrance.&quot; There is one entrance in the map. There are two entrances in the archived map. The note was added after the archived map was removed from the project folder.
+
+Observation F: The final review says zero character issues. The attached summary says there is one character issue. Both documents have the review date. The reviewer field is empty in both.
+
+09.. Definitions
+
+Active: A state where a system is working or responding. A system can be active without showing anything.
+
+Absent: Not found in the place being checked. This does not say if the item is else.
+
+Expected: Matches what was written down or assumed. An expected result may not have been checked.
+
+Instance: A single example of an object. Two instances can have the name, same properties and same place but still be different.
+
+Original: The version that is available for checking. This does not mean it was the version ever made.
+
+Placeholder: An item in a spot where another item was meant to be. The real item may not exist.
+
+Removed: Not found in the place being checked. A removed item might still be in a backup, cache, export or reference.
+
+Verified: Checked using a method. Verification is only as good as the method the conditions and the time of the check.
+
+10\. Final review notes
+
+The document was checked for spelling, headings and broken links. Some statements are not clear because the original notes were not clear. It is better to keep them as they&#x27;re than to make up explanations. The project is not faulty just because some notes are not clear.
+
+The current release does not need the archived notes to be read. They are kept for checking and history. They may be incomplete, old repeated or not related to the version.
+
+If this document is read by someone not on the project team treat all statements as history not as instructions. The project does not have a record of every test every person or every object that was in the files.
+
+There is no need to count the people in the records. Some entries are for test accounts. Some are for characters. Some are for records copied from projects. The labels were not consistent. The original list is not available.
+
+The room was empty when the last test ended. The server log said there was one person after the shutdown. The entry was marked as an update. No join events happened after that and the record was not in the final report.
+
+The original placeholder was not replaced. It was moved to a spot where it would not be seen during testing. The change was considered minor. The current project has no reason to bring it back.
+
+If you found this sentence by selecting text that is not a sign of a hidden feature. Text selection is part of the browser. Can be used to copy notes. Many sentences in the document may sound more important when read alone.
+
+The first record has no author. The second record also has no author. The third record has a value that was taken out of the index. The fourth record was made before the record according to its time. The times were not changed because the archive tool does not allow editing.
+
+Do not look for the missing entry in the folder. It was never stored there. Do not look for the missing entry in the folder. The backup was made after the entry disappeared. The export was considered complete when it was made.
+
+There were supposed to be fourteen. There are fourteen in the list. The old notes say fifteen. They also count the test room and the test room was removed. This explanation is enough, for the report.
+
+No changes are needed. If this line appears in another copy check the revision number before assuming the copies are the same.
+
+End of document. Index status: current enough for reference.
+
+Place Holder.lua / Internal documentation mirror / No support contact listed.</pre></main>
+</body>
+</html>
